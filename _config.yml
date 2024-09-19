@@ -21,7 +21,7 @@
 title: Blog Title 
 email: sedredge20@gmail.com 
 description: "Change the description so that it describes your blog" 
-baseurl: "/myblog" # the name of the repository 
+baseurl: "/MyBlog" # the name of the repository 
 url: "https://shae-sims.github.io" #  change this to "https://<your-github-username>.github.io"
 image: /assets/images/headerimg.jpg
 author: Shaelyn Eldredge
