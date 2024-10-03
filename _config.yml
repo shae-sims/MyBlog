@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Blog Title 
+title: Data Science Blog 
 email: sedredge20@gmail.com 
 description: "Change the description so that it describes your blog" 
 baseurl: "/MyBlog" # the name of the repository 
