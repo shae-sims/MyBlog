@@ -161,6 +161,7 @@ The filter_on command is another very helpful way to organize data. This command
     0   James           100         
     3   Jane            95 
 ```
+More explanation on any of the functions talked about in this article and the explanations of many other functions in pyjanitor can be found <a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.convert_date" target="_blank">here</a>
 
 ## Conclusion
 Pyjanitor can be a helpful tool to make data cleaning sweet and simple. It has many useful functions that streamline the data cleaning process. Now that you have learned a little bit about it go try it for yourself! Next time you are tasked with cleaning data use the pyjanitor package to help get the job done!
