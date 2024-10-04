@@ -21,14 +21,14 @@ First let’s focus on what Pyjanitor is. It was originally inspired by an R pac
 The first thing you need to do to use the pyjanitor package is to install it. 
 To do this you type in your terminal the command:  
     '''
-    {% raw %}Pip install pyjanitor
+    {% raw %}Pip install pyjanitor{% endraw %}
     '''
 *You will also need the pandas package as pyjanitor is built off of it to install pandas you need to run pip install pandas* 
 
 To be able to use pyjanitor in your work you will need to import the packages at the top of your code using the following:
 '''
 {% raw %}Import pandas as pd
-Import pyjanitor
+Import pyjanitor{% endraw %}
 '''
 
 Useful Functions
