@@ -17,18 +17,18 @@ One of the most commonly used packages is called pandas, but it is not the only 
 
 First let’s focus on what Pyjanitor is. It was originally inspired by an R package by the name of janitor. Its many functionalities are to help make the data cleaning process neat and easy. It is used in combination with the pandas package to add more functionality and customization. Pyjanitor can help with many things such as renaming columns, filtering data, adding to or removing from columns, reshaping the data, and more. 
 
-  ### How to use it
+### How to use it
 The first thing you need to do to use the pyjanitor package is to install it. 
 To do this you type in your terminal the command:  
     '''
-    {% raw %}Pip install pyjanitor{% endraw %}
+    Pip install pyjanitor
     '''
 *You will also need the pandas package as pyjanitor is built off of it to install pandas you need to run pip install pandas* 
 
 To be able to use pyjanitor in your work you will need to import the packages at the top of your code using the following:
 '''
-{% raw %}Import pandas as pd
-Import pyjanitor{% endraw %}
+    Import pandas as pd
+    Import pyjanitor
 '''
 
 Useful Functions
@@ -47,10 +47,39 @@ This list is not all of the function pyjanitor offers, but it can give you a goo
 ## Adding Columns
 There are two main functions that deal with adding columns add_column and add_columns. These function can be used to add a singular column or multiple columns to a pandas’ data frame. The first, add_column, takes in four different arguments the data frame (df), the new column name (column_name), the value you would like to be put into the row (value), and a fill true or false value that will fill in for any value that is not filled with the value argument (fill_remaining). The first three values (df, column_name, value) are required to run the function. However, the fill_remaining argument has a default of a false value.  An example using this is:
 
-The add_columns command is slightly different from just adding a singular column. It has only three arguments the data frame (df), fill_remaining (which is the same as above), and **kargs which is a list of the columns that you would like to add with their values to be looped through and placed in the data frame. An example of this is:
-Removal
+'''
+    >>> df = pd.DataFram({
+        "student_name" : ["James", "John", "Sam", "Jane"],
+        "student_id" : ["123", "124", "125", "126"]
+    })
+    >>> df.add_column(column_name = "grade", value= list("acba"))
+        student_name    student_id  grade
+    0   James           123         a
+    1   John            124         c
+    2   Sam             125         b
+    3   Jane            126         a
+
+
+'''
+
+The add_columns command is slightly different from just adding a singular column. It has only three arguments the data frame (df), fill_remaining (which is the same as above), and **kargs which is a list of the columns that you would like to add with their values to be looped through and placed in the data frame. You could run this code on the same data frame shown in the previous example by running the following:
+
+'''
+    >>> df.add_columns(seat_assignment = list(range(1,5)), class_period=2)
+        student_name    student_id  seat_assignment     class_period
+    0   James           123         1                   2
+    1   John            124         2                   2
+    2   Sam             125         3                   2
+    3   Jane            126         4                   2
+'''
+
+
+## Removal
 When working with data it is important to be able to remove unwanted and unnecessary data. We can either remove from the rows or remove columns in general. Some helpful features that are highlighted in the pyjanitor package are remove_column and remove_empty. 
 Remove_column is simple and easy to use. All you need to do is input the data frame you would like to work with and the column name inside the parenthesis. Here is some code to demonstrate how to do this:
+
+
+
 Remove_empty is just as easy it just like remove_column it takes in the data frame that you would like to remove from. The second argument is reset_index with a default of true. Reset_index allows you to clarify if you would like the index for the row or columns around the removal area to be reset or if you would like to keep them the same. An example of this is:
 
 ## Filtering
