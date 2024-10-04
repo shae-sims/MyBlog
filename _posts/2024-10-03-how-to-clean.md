@@ -8,6 +8,7 @@ image: /assets/images/pyjanitor.jpg
 
 ## Introduction
 
+
 Imagine you have started your research, and you finally finished the data collection phase. What is your next step? Data cleaning. Two words that most people who work with data dread. It can be a time-consuming process, but it is so important to the success of any research project. 
 Luckily, we live in a world that has wonderful programs that can help us to successfully clean data. It is fast and simple, you just have to get started! One of the most common programs used for data cleaning is R, however, did you know it can be done in Python too. Due to Python being an open-source program, many people have developed packages that allow for data cleaning to be done using simple commands. All you need to know is what packages are the most helpful.
 One of the most commonly used packages is called pandas, but it is not the only one. In this article we will focus on an a package built off of pandas, Pyjanitor. It was designed to make data cleaning as simple and as neat as possible. Using pyjanitor can help you have beautiful usable data in no time!
