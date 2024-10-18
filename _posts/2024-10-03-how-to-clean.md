@@ -11,7 +11,9 @@ display_image: True
 
 
 Imagine you have started your research, and you finally finished the data collection phase. What is your next step? Data cleaning. Two words that most people who work with data dread. It can be a time-consuming process, but it is so important to the success of any research project. 
+
 Luckily, we live in a world that has wonderful programs that can help us to successfully clean data. It is fast and simple, you just have to get started! One of the most common programs used for data cleaning is R, however, did you know it can be done in Python too? 
+
 Due to Python being an open-source program, many people have developed packages that allow for data cleaning to be done using simple commands. In this post we will explore the use of one of these packages, pyjanitor. A package designed to make data cleaning as simple and as neat as possible.
 
 	
@@ -49,6 +51,7 @@ This list is not all of the function pyjanitor offers, to see a complete list cl
 
 ## Adding Columns
 There are two main functions that deal with adding columns add_column and add_columns. These function can be used to add a singular column or multiple columns to a pandas’ data frame. 
+
 The first, add_column, takes in four different arguments the data frame (df), the new column name (column_name), the value you would like to be put into the row (value), and a fill true or false value that will fill in for any value that is not filled with the value argument (fill_remaining). The first three values (df, column_name, value) are required to run the function. However, the fill_remaining argument has a default of a false value.  An example using this is:
 
 ```
@@ -119,13 +122,14 @@ Remove_empty allows you to remove any missing or unwanted values, as long as the
     1   2  6
     2   3  8
 ```
-*<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.remove_columns" target="_blank">Click here</a> to see more documentation on removing values.*
+<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.remove_columns" target="_blank">Click here</a> to see more documentation on removing values.
 
 ## Filtering
 
 ![Figure](/assets/images/dataframe.jpg)
 
 The final functions that we will be going over are filtering functions. pyjanitor offers a wide range of different functions that can be used to select data with certain values or within certain ranges. 
+
 The first of which is filter_column_isin. This command is special because it allows you to find certain values within a column. To use it you put the data frame you want to filter through, the column you would like to look at, and iterable (commonly lists or tuples but can be any type of pandas series). This function will go through and find each instance of that iterable in the column.
 
 ```
@@ -171,7 +175,7 @@ The filter_on command is another very helpful way to organize data. This command
     0   James           100         
     3   Jane            95 
 ```
-*<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.filter" target="_blank">Click here</a> to see more documentation on flitering.*
+<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.filter" target="_blank">Click here</a> to see more documentation on flitering.
 
 More explanation on any of the functions talked about in this article and the explanations of many other functions in pyjanitor can be found <a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions--general-functions" target="_blank">here</a>
 
