@@ -80,10 +80,10 @@ The add_columns command is slightly different from just adding a singular column
     3   Jane            126         4                   2
 ```
 
-<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.add_columns.add_column" target="_blank">Click here</a> to see more documentation on adding columns
+*<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.add_columns.add_column" target="_blank">Click here</a> to see more documentation on adding columns.*
 
 ## Removal
-![Figure](/assets/images/side_by_side_histogram.jpg)
+<img src="/assets/images/side_by_side_histogram.jpg" alt="" style="width:300px;"/>
 
 When working with data it is important to be able to remove unwanted and unnecessary data. We can either remove from the rows or remove columns in general. Some helpful features that are highlighted in the pyjanitor package are remove_column and remove_empty. 
 Remove_column is simple and easy to use. All you need to do is input the data frame you would like to work with and the column name inside the parenthesis. Here is some code to demonstrate how to do this:
@@ -122,11 +122,10 @@ Remove_empty allows you to remove any missing or unwanted values, as long as the
     1   2  6
     2   3  8
 ```
-<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.remove_columns" target="_blank">Click here</a> to see more documentation on removing values.
+*Click <a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.remove_columns" target="_blank">here</a> to see more documentation on removing values.*
 
 ## Filtering
-
-![Figure](/assets/images/dataframe.jpg)
+<img src="/assets/images/dataframe.jpg" alt="" style="width:300px;"/>
 
 The final functions that we will be going over are filtering functions. pyjanitor offers a wide range of different functions that can be used to select data with certain values or within certain ranges. 
 
@@ -175,7 +174,7 @@ The filter_on command is another very helpful way to organize data. This command
     0   James           100         
     3   Jane            95 
 ```
-<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.filter" target="_blank">Click here</a> to see more documentation on flitering.
+*<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.filter" target="_blank">Click here</a> to see more documentation on flitering.*
 
 More explanation on any of the functions talked about in this article and the explanations of many other functions in pyjanitor can be found <a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions--general-functions" target="_blank">here</a>
 
