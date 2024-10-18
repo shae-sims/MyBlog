@@ -76,9 +76,11 @@ The add_columns command is slightly different from just adding a singular column
     2   Sam             125         3                   2
     3   Jane            126         4                   2
 ```
-
+*<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.add_columns.add_column" target="_blank">Click here</a> to see more documentation on adding columns*
 
 ## Removal
+<img src="/assets/images/side_by_side_histograms.jpg" alt="" style="width:100px;"/>
+
 When working with data it is important to be able to remove unwanted and unnecessary data. We can either remove from the rows or remove columns in general. Some helpful features that are highlighted in the pyjanitor package are remove_column and remove_empty. 
 Remove_column is simple and easy to use. All you need to do is input the data frame you would like to work with and the column name inside the parenthesis. Here is some code to demonstrate how to do this:
 
@@ -116,7 +118,7 @@ Remove_empty allows you to remove any missing or unwanted values, as long as the
     1   2  6
     2   3  8
 ```
-
+*<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.remove_columns" target="_blank">Click here</a> to see more documentation on removing values.*
 
 ## Filtering
 
@@ -168,10 +170,12 @@ The filter_on command is another very helpful way to organize data. This command
     0   James           100         
     3   Jane            95 
 ```
+*<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.filter" target="_blank">Click here</a> to see more documentation on flitering.*
+
 More explanation on any of the functions talked about in this article and the explanations of many other functions in pyjanitor can be found <a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions--general-functions" target="_blank">here</a>
 
 ## Conclusion
-pyjanitor can be a helpful tool to make data cleaning sweet and simple. It has many useful functions that streamline the data cleaning process. Now that you have learned a little bit about it go try it for yourself! Next time you are tasked with cleaning data use the pyjanitor package to help get the job done!
+pyjanitor can be a helpful tool to make data cleaning sweet and simple. It has many useful functions that streamline the data cleaning process. In this post we covered how to add and remove columns and how to filter the data to get what we need. Now that you have learned a little bit about cleaning data using pyjanitor go try it for yourself! Next time you are tasked with cleaning data use the pyjanitor package to help get the job done!
 
 
 
