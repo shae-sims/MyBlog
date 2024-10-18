@@ -83,7 +83,7 @@ The add_columns command is slightly different from just adding a singular column
 *<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.add_columns.add_column" target="_blank">Click here</a> to see more documentation on adding columns.*
 
 ## Removal
-<img src="{{site.url}}/{{site.baseurl}}/assets/images/side_by_side_histogram.jpg" alt="" style="width:300px;"/>
+<img src="{{site.url}}/{{site.baseurl}}/assets/images/side_by_side_histograms.jpg" alt="" style="width:300px;"/>
 
 When working with data it is important to be able to remove unwanted and unnecessary data. We can either remove from the rows or remove columns in general. Some helpful features that are highlighted in the pyjanitor package are remove_column and remove_empty. 
 Remove_column is simple and easy to use. All you need to do is input the data frame you would like to work with and the column name inside the parenthesis. Here is some code to demonstrate how to do this:
