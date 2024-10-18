@@ -21,7 +21,7 @@
 title: Data Science Blog
 email: sedredge20@gmail.com 
 description: "This is a blog about how to use python in the data science world through informational articles to projects done in" 
-baseurl: "/MyBlog" # the name of the repository 
+baseurl: "MyBlog" # the name of the repository 
 url: "https://shae-sims.github.io" #  change this to "https://<your-github-username>.github.io"
 image: /assets/images/headerimg.jpg
 author: Shaelyn Eldredge
