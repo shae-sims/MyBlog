@@ -79,7 +79,7 @@ The add_columns command is slightly different from just adding a singular column
 *<a href="https://pyjanitor-devs.github.io/pyjanitor/api/functions/#janitor.functions.add_columns.add_column" target="_blank">Click here</a> to see more documentation on adding columns*
 
 ## Removal
-<img src="/assets/images/side_by_side_histograms.jpg" alt="" style="width:100px;"/>
+![Figure]({{site.url}}/{{site.baseurl}}/assets/images/side_by_side_histogram.jpg)
 
 When working with data it is important to be able to remove unwanted and unnecessary data. We can either remove from the rows or remove columns in general. Some helpful features that are highlighted in the pyjanitor package are remove_column and remove_empty. 
 Remove_column is simple and easy to use. All you need to do is input the data frame you would like to work with and the column name inside the parenthesis. Here is some code to demonstrate how to do this:
@@ -122,7 +122,7 @@ Remove_empty allows you to remove any missing or unwanted values, as long as the
 
 ## Filtering
 
-<img src="/assets/images/dataframe.jpg" alt="" style="width:100px;"/>
+![Figure]({{site.url}}/{{site.baseurl}}/assets/images/dataframe.jpg)
 
 The final functions that we will be going over are filtering functions. pyjanitor offers a wide range of different functions that can be used to select data with certain values or within certain ranges. 
 The first of which is filter_column_isin. This command is special because it allows you to find certain values within a column. To use it you put the data frame you want to filter through, the column you would like to look at, and iterable (commonly lists or tuples but can be any type of pandas series). This function will go through and find each instance of that iterable in the column.
