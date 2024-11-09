@@ -15,7 +15,7 @@ There is so much data in sports. However, it can be hard to find and hard to get
 
 Before webscrapping any website you should check the robots.txt file. This can be found on almost any website, all you have to do is type in the **url/robots.txt**. robots.txt files tell each type of bot what part of the website they are allowed to scrap. These are some examples of robots.txt files:
 
-<img src="{{site.url}}/{{site.baseurl}}/assets/images/robots-txt.jpg" alt="" style="width:300px;"/>
+<img src="{{site.url}}/{{site.baseurl}}/assets/images/robots-txt.jpg" alt="" style="width:300px; display: block; margin: auto;"/>
 
 These files show different bots and what they are allowed to scrap and disallowed scrap by each type of bot. For the general user you need to look at the bot file indicated with an astrix (*). Along with which parts of the website the file also can have some restrictions on how often you can make requests to a website, show in the 'Crawl-delay:'. Some websites also have restrictions on the hours that you can webscrap. You can find more information on webscrapping <a href="https://www.zenrows.com/blog/robots-txt-web-scraping#robots-txt-web-scraping" target="_blank">here</a>.
 
