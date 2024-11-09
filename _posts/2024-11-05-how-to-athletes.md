@@ -45,7 +45,7 @@ from bs4 import BeautifulSoup
 
  We will look at all the volleyball players from the year 2023. This is the type of table we will be scrapping from.
 
-<img src="{{site.url}}/{{site.baseurl}}/assets/images/big10table.jpg" alt="" style="width:300px;"/>
+<img src="{{site.url}}/{{site.baseurl}}/assets/images/big10table.jpg" alt=""/>
 
 First, we need to set up the driver we will be scrapping from. We do this with the following code.
 
