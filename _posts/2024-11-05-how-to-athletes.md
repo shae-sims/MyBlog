@@ -152,3 +152,94 @@ import matplotlib.pyplot as plt
 Because the name, and the number of games or sets played don't tell us much about the ranking we will be removing them from the correlation matrix.
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/correlationmatrix.png" alt="" style="display: block; margin: auto;"/>
+
+There are a few interesting trends shown in the correlation matrix:
+* Kills and Kill per Set are correlated with the Rank
+* Blocks and Blocks per Set are correlated with Rank
+* Blocks and Kills are correlated with each other
+* Service Aces and Digs are correlated
+
+*Highest Ranking is 1*
+*A kill is scoring a point off of a hit*
+*Digs are passing a hard driven ball well*
+*Service Ace is a point off of a serve*
+
+We can compare each of these correlations through scatterplots. As you can see when the rank is closer to 1 the athletes tend to have more kills and more blocks. This shows us that the players with the highest rankings tend to be better front row players then anywhere else.
+
+<img src="{{site.url}}/{{site.baseurl}}/assets/images/rankingcomparisons.png" alt="" style="display: block; margin: auto;"/>
+
+We can also compare blocks to kills and aces to digs in a scatterplots.
+
+<img src="{{site.url}}/{{site.baseurl}}/assets/images/digsandaces.png" alt="" style="display: block; margin: auto;"/>
+
+Another interesting thing to look at is the stats by the athletes name. We can do this by using a bar graph. In this graph it is showing the top five highest ranked players hitting percentages.
+
+
+<img src="{{site.url}}/{{site.baseurl}}/assets/images/tophittingpercentage.png" alt="" style="display: block; margin: auto;"/>
+
+
+The code for all of these graphs is below:
+
+```
+#Correlation Matrix
+
+correlation_matrix = players.drop(columns=['games_played', 'sets_played', 'name']).corr().round(2)
+plt.figure(figsize=(8, 6))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', square=True)
+plt.title('Correlation Heatmap')
+plt.show()
+plt.savefig('correlation.jpg')
+
+#Ranking Scatterplots
+
+fig, axs = plt.subplots(2, 2, figsize=(10, 10))
+axs[0,0].scatter(players['rank'],players['blocks'], color = 'skyblue')
+axs[0,0].set_xlabel('Rank of Athlete')
+axs[0,0].set_ylabel('Total Number of Blocks')
+axs[0,0].set_title('Rank compared to Blocks')
+
+axs[0,1].scatter(players['rank'],players['blocks_per_set'], color = 'skyblue')
+axs[0,1].set_xlabel('Rank of Athlete')
+axs[0,1].set_ylabel('Total Number of Blocks per Set')
+axs[0,1].set_title('Rank compared to Blocks per Set')
+
+axs[1,0].scatter(players['rank'],players['kills'], color = 'skyblue')
+axs[1,0].set_xlabel('Rank of Athlete')
+axs[1,0].set_ylabel('Total Number of Kills')
+axs[1,0].set_title('Rank compared to Kills')
+
+axs[1,1].scatter(players['rank'],players['kills_per_set'], color = 'skyblue')
+axs[1,1].set_xlabel('Rank of Athlete')
+axs[1,1].set_ylabel('Total Number of Kills per Set')
+axs[1,1].set_title('Rank compared to Kills per Set')
+plt.show()
+
+#Other Scatterplots
+
+fig, axs = plt.subplots(1, 2, figsize=(10, 5))
+axs[0].scatter(players['blocks'],players['kills'], color = 'darkcyan')
+axs[0].set_xlabel('Number of Blocks')
+axs[0].set_ylabel('Number of Kills')
+axs[0].set_title('Number of Blocks VS Number of Kills')
+
+axs[1].scatter(players['digs'],players['service_aces'], color = 'darkcyan')
+axs[1].set_xlabel('Number of Digs')
+axs[1].set_ylabel('Number of Aces')
+axs[1].set_title('Digs compared to Aces')
+plt.show()
+
+#Barplot
+
+top_hitters = players[0:5]
+
+plt.figure(figsize= (7,7))
+sns.barplot(top_hitters, x = 'name', y= 'hitting_percentage')
+plt.ylabel('Hitting Percentage')
+plt.xlabel('Athletes Name')
+plt.title('Top 5 Athletes Hitting Percentage')
+plt.show()
+```
+
+## Conclusion
+
+Today we barely scrapped the tip of the iceberg of possibilities for this data set. We talked about how to webscrap and what to pay attention to in robots.txt files. We covered how to select the columns we need and rename them. And then we showed some different visualizations we can use to display are data. Now that you have done this for the volleyball data set, you can do it for any data set that you can find. Go and find a data set that interests you and see what you can uncover!
