@@ -131,7 +131,7 @@ These two steps can be combined into one line of code as follows:
 ```
 players = players2023.drop(columns= ['Unnamed: 0', 'logo url']).rename(columns= {'RK' : 'rank', 
                                 'NAME':'name','GP':'games_played','SETS':'sets_played',
-                                'KILLS': 'kills', 'KILL/S':'kills_per_set', 'PCT': 'hitting_percentage', 
+                                'KILLS': 'kills', 'KILL/S':'kills_per_set', 'PCT':'hitting_percentage', 
                                 'A':'assists', 'A/S': 'assists_per_set', 'BLK':'blocks', 
                                 'BLK/S':'blocks_per_set', 'DIG':'digs', 
                                 'DIG/S':'digs_per_set', 'SA':'service_aces', 
