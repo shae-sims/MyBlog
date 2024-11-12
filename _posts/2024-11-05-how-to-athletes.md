@@ -189,6 +189,10 @@ Another interesting thing to look at is the stats by the athletes name. We can d
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/tophittingpercentage.png" alt="" style="display: block; margin: auto;"/>
 
 
+## Conclusion
+
+Today we barely scrapped the tip of the iceberg of possibilities for this data set. We talked about how to webscrap and what to pay attention to in robots.txt files. We covered how to select the columns we need and rename them. And then we showed some different visualizations we can use to display are data. Now that you have done this for the volleyball data set, you can do it for any data set that you can find. Go and find a data set that interests you and see what you can uncover!
+
 The code for all of these graphs is below:
 
 ```
@@ -251,6 +255,4 @@ plt.title('Top 5 Athletes Hitting Percentage')
 plt.show()
 ```
 
-## Conclusion
 
-Today we barely scrapped the tip of the iceberg of possibilities for this data set. We talked about how to webscrap and what to pay attention to in robots.txt files. We covered how to select the columns we need and rename them. And then we showed some different visualizations we can use to display are data. Now that you have done this for the volleyball data set, you can do it for any data set that you can find. Go and find a data set that interests you and see what you can uncover!
