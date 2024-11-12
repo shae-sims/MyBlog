@@ -109,6 +109,43 @@ Be sure to close the driver when you are finished scrapping the data. Using the 
 ```
 driver.close()
 ```
+## Data Cleaning
 
-## Analysing the Data
+The next step is to make sure that we can use use the data that we got from website. Luckily in this case the data is already pretty clean. This is what the data will look like right after webscrapping it. 
+
+<img src="{{site.url}}/{{site.baseurl}}/assets/images/precleanvolleydata.jpg" alt=""/>
+
+The first thing we need to do is git rid of the columns that have no value to us at this moment. To do this we will use the drop function found in the pandas package. To do this we use the columns option in drop and put in a list of the columns we would like to remove. Next, we will use the rename function to change the column names to be more discriptive of the variable.
+
+```
+players = players2023.drop(columns= ['Unnamed: 0', 'logo url'])
+players = players.rename(columns= {'RK' : 'rank', 'NAME':'name','GP':'games_played','SETS':'sets_played',
+                             'KILLS': 'kills', 'KILL/S':'kills_per_set', 'PCT': 'hitting_percentage', 'A':'assists', 'A/S': 'assists_per_set', 'BLK':'blocks', 'BLK/S':'blocks_per_set', 'DIG':'digs', 'DIG/S':'digs_per_set', 'SA':'service_aces', 'SA/S':'service_aces_per_set', 'R%':'reception_percentage'})
+```
+These two steps can be combined into one line of code as follows:
+
+```
+players = players2023.drop(columns= ['Unnamed: 0', 'logo url']).rename(columns= {'RK' : 'rank', 'NAME':'name','GP':'games_played',
+                              'SETS':'sets_played','KILLS': 'kills', 'KILL/S':'kills_per_set', 'PCT': 'hitting_percentage', 'A':'assists', 'A/S': 'assists_per_set', 'BLK':'blocks', 'BLK/S':'blocks_per_set', 'DIG':'digs', 
+                              'DIG/S':'digs_per_set', 'SA':'service_aces', 'SA/S':'service_aces_per_set',  'R%':'reception_percentage'})
+```
+
+The data frame should now then look like this:
+
+<img src="{{site.url}}/{{site.baseurl}}/assets/images/cleanvolleydata.jpg" alt=""/>
+
+
+## Exploring the Data
+
+Now we can look into the trend in the data and what it tells us. One of the first things I was interested in exploring is what variables effect the ranking. One interesting way we can look at this is by the correlation matrix of each of the variables. We do this throught the matplotlibs package and the seaborn package. If you don't have these packages you can download them by running these two lines of code.
+
+```
+pip install matplotlib
+pip install seaborn
+```
+We also need to import them into the area we are working.
+```
+import seaborn as sns
+import matplotlib.pyplot as plt
+```
 
