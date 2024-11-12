@@ -11,17 +11,17 @@ display_image: True
 
 There is so much data in sports. However, it can be hard to find and hard to get information out of it once you do find it. One of the biggest data sets out there comes from the collegiate level of competition. We will be exploring the ethics of how to get this information, how to webscrap it, and how to get some information out of it. We are looking at data on volleyball from the big 10 conference in 2023.
 
-## Ethics of Webscrapping
+## Ethics of Web Scraping
 
-Before webscrapping any website you should check the robots.txt file. This can be found on almost any website, all you have to do is type in the **url/robots.txt**. robots.txt files tell each type of bot what part of the website they are allowed to scrap. These are some examples of robots.txt files:
+Before Web Scraping any website you should check the robots.txt file. This can be found on almost any website, all you have to do is type in the **url/robots.txt**. robots.txt files tell each type of bot what part of the website they are allowed to scrap. These are some examples of robots.txt files:
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/robots-txt.jpg" alt="" style="width:300px; display: block; margin: auto;"/>
 
-These files show different bots and what they are allowed to scrap and disallowed scrap by each type of bot. For the general user you need to look at the bot file indicated with an astrix (*). Along with which parts of the website the file also can have some restrictions on how often you can make requests to a website, show in the 'Crawl-delay:'. Some websites also have restrictions on the hours that you can webscrap. You can find more information on webscrapping <a href="https://www.zenrows.com/blog/robots-txt-web-scraping#robots-txt-web-scraping" target="_blank">here</a>.
+These files show different bots and what they are allowed to scrap and disallowed scrap by each type of bot. For the general user you need to look at the bot file indicated with an astrix (*). Along with which parts of the website the file also can have some restrictions on how often you can make requests to a website, show in the 'Crawl-delay:'. Some websites also have restrictions on the hours that you can webscrap. You can find more information on web scraping <a href="https://www.zenrows.com/blog/robots-txt-web-scraping#robots-txt-web-scraping" target="_blank">here</a>.
 
-## Webscrapping
+## Web Scraping
 
-For this example we will be looking at the website for the Big 10 Conference volleyball teams. Before we get started we need to install all of the necessary packages to preform the webscrapping.
+For this example we will be looking at the website for the Big 10 Conference volleyball teams. Before we get started we need to install all of the necessary packages to preform the web scraping.
 
 ```
 pip install pandas
@@ -43,11 +43,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 ```
 
- We will look at all the volleyball players from the year 2023. This is the type of table we will be scrapping from.
+ We will look at all the volleyball players from the year 2023. This is the type of table we will be scraping from.
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/big10table.jpg" alt=""/>
 
-First, we need to set up the driver we will be scrapping from. We do this with the following code.
+First, we need to set up the driver we will be scraping from. We do this with the following code.
 
 ```
 url = 'https://bigten.org/wvb/stats/'
@@ -66,7 +66,7 @@ year_option = driver.find_element(By.XPATH, ".//li[text()='2023']")
 year_option.click()
  ```
 
-*If you would like more information on selenium you can find it <a href="https://selenium-python.readthedocs.io/installation.html" target="_blank">here</a>. *
+*If you would like more information on selenium you can find it <a href="https://selenium-python.readthedocs.io/installation.html" target="_blank">here</a>.*
 
 Now that we have the appropriate table, we want to use the package beautiful soup to get the htlm and information from the table. Using the following code we create the beautiful soup object and get the table.
 
@@ -104,14 +104,14 @@ Finally, we will use the pandas package to create a data frame with all the info
 data2023 = pd.DataFrame(rows, columns= headers)
 ```
 
-Be sure to close the driver when you are finished scrapping the data. Using the following:
+Be sure to close the driver when you are finished scraping the data. Using the following:
 
 ```
 driver.close()
 ```
 ## Data Cleaning
 
-The next step is to make sure that we can use use the data that we got from website. Luckily in this case the data is already pretty clean. This is what the data will look like right after webscrapping it. 
+The next step is to make sure that we can use use the data that we got from website. Luckily in this case the data is already pretty clean. This is what the data will look like right after web scraping it. 
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/precleanvolleydata.jpg" alt=""/>
 
@@ -167,13 +167,10 @@ There are a few interesting trends shown in the correlation matrix:
 * Blocks and Kills are correlated with each other
 * Service Aces and Digs are correlated
 
-*Highest Ranking is 1*
-
-*A kill is scoring a point off of a hit*
-
-*Digs are passing a hard driven ball well*
-
-*Service Ace is a point off of a serve*
+\* *Highest Ranking is 1* 
+\* *A kill is scoring a point off of a hit*
+\* *Digs are passing a hard driven ball well*
+\* *Service Ace is a point off of a serve* 
 
 We can compare each of these correlations through scatterplots. As you can see when the rank is closer to 1 the athletes tend to have more kills and more blocks. This shows us that the players with the highest rankings tend to be better front row players then anywhere else.
 
