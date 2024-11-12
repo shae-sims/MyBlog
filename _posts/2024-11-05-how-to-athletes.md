@@ -119,15 +119,23 @@ The first thing we need to do is git rid of the columns that have no value to us
 
 ```
 players = players2023.drop(columns= ['Unnamed: 0', 'logo url'])
-players = players.rename(columns= {'RK' : 'rank', 'NAME':'name','GP':'games_played','SETS':'sets_played',
-                             'KILLS': 'kills', 'KILL/S':'kills_per_set', 'PCT': 'hitting_percentage', 'A':'assists', 'A/S': 'assists_per_set', 'BLK':'blocks', 'BLK/S':'blocks_per_set', 'DIG':'digs', 'DIG/S':'digs_per_set', 'SA':'service_aces', 'SA/S':'service_aces_per_set', 'R%':'reception_percentage'})
+players = players.rename(columns= {'RK' : 'rank', 'NAME':'name','GP':'games_played',
+                            'SETS':'sets_played','KILLS': 'kills', 'KILL/S':'kills_per_set',
+                            'PCT': 'hitting_percentage', 'A':'assists', 'A/S': 'assists_per_set',
+                            'BLK':'blocks', 'BLK/S':'blocks_per_set', 'DIG':'digs',
+                            'DIG/S':'digs_per_set', 'SA':'service_aces', 
+                            'SA/S':'service_aces_per_set', 'R%':'reception_percentage'})
 ```
 These two steps can be combined into one line of code as follows:
 
 ```
-players = players2023.drop(columns= ['Unnamed: 0', 'logo url']).rename(columns= {'RK' : 'rank', 'NAME':'name','GP':'games_played',
-                              'SETS':'sets_played','KILLS': 'kills', 'KILL/S':'kills_per_set', 'PCT': 'hitting_percentage', 'A':'assists', 'A/S': 'assists_per_set', 'BLK':'blocks', 'BLK/S':'blocks_per_set', 'DIG':'digs', 
-                              'DIG/S':'digs_per_set', 'SA':'service_aces', 'SA/S':'service_aces_per_set',  'R%':'reception_percentage'})
+players = players2023.drop(columns= ['Unnamed: 0', 'logo url']).rename(columns= {'RK' : 'rank', 
+                                'NAME':'name','GP':'games_played','SETS':'sets_played',
+                                'KILLS': 'kills', 'KILL/S':'kills_per_set', 'PCT': 'hitting_percentage', 
+                                'A':'assists', 'A/S': 'assists_per_set', 'BLK':'blocks', 
+                                'BLK/S':'blocks_per_set', 'DIG':'digs', 
+                                'DIG/S':'digs_per_set', 'SA':'service_aces', 
+                                'SA/S':'service_aces_per_set',  'R%':'reception_percentage'})
 ```
 
 The data frame should now then look like this:
@@ -160,8 +168,11 @@ There are a few interesting trends shown in the correlation matrix:
 * Service Aces and Digs are correlated
 
 *Highest Ranking is 1*
+
 *A kill is scoring a point off of a hit*
+
 *Digs are passing a hard driven ball well*
+
 *Service Ace is a point off of a serve*
 
 We can compare each of these correlations through scatterplots. As you can see when the rank is closer to 1 the athletes tend to have more kills and more blocks. This shows us that the players with the highest rankings tend to be better front row players then anywhere else.
