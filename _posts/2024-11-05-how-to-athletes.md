@@ -188,7 +188,7 @@ Another interesting thing to look at is the stats by the athletes name. We can d
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/tophittingpercentage.png" alt="" style="display: block; margin: auto;"/>
 
-*Learn more about <a href="https://seaborn.pydata.org/" target="_blank">seaborn</a> and <a href="https://matplotlib.org/stable/api/pyplot_summary.html" target="_blank">matplotlib</a> *
+*Learn more about <a href="https://seaborn.pydata.org/" target="_blank">seaborn</a> and <a href="https://matplotlib.org/stable/api/pyplot_summary.html" target="_blank">matplotlib</a>*
 
 ## Conclusion
 
