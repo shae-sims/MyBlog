@@ -149,3 +149,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 ```
 
+Because the name, and the number of games or sets played don't tell us much about the ranking we will be removing them from the correlation matrix.
+
+<img src="{{site.url}}/{{site.baseurl}}/assets/images/correlationmatrix.png" alt="" style="display: block; margin: auto;"/>
