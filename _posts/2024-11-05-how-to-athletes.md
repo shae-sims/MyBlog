@@ -2,28 +2,28 @@
 layout: post
 title:  "Evaluating College Volleyball Rankings"
 author: Shaelyn Eldrege
-description: This article will talk about the process of web scraping, cleaening, and evualting college volleyball statistics through athletes in the Big 10 Conference in 2023.
+description: This article will talk about the process of web scraping, cleaning, and evaluating college volleyball statistics for athletes in the Big 10 Conference in 2023.
 image: /assets/images/volleyballs.jpeg
 display_image: True
 ---
 
 ## Introduction
 
-Watching volleyball is one of my favorite past times. Seeing how each team reacts and which players seem to dominate the court has always been facinating. But there is always the question of what makes a good player? Is it there hitting skill, how hard they serve, or how many times they pass the ball? We will be exploring these questions and much more.
+Watching volleyball is one of my favorite past times. Seeing how each team reacts and which players seem to dominate the court has always been fascinating. But there is always the question of what makes a good player? Is it their hitting skill, how hard they serve, or how many times they pass the ball? We will be exploring these questions and much more.
 
-The first thing we will do is get a data set with player rankings. To do this we will be using the Big 10 Conference volleyball player rankings from 2023. First we will look into web scraping the data, and ethics behind it. Then we will organize it and see what information we can get from it.
+The first thing to do is to get a data set with player rankings. To do this we will be using the Big 10 Conference volleyball player rankings from 2023. First we will look into web scraping the data, and ethics behind it. Then we will organize it and see what information we can get from it.
 
 ## Ethics of Web Scraping
 
-Before Web Scraping any website you should check the robots.txt file. This can be found on almost any website, all you have to do is type in the **url/robots.txt**. robots.txt files tell each type of bot what part of the website they are allowed to scrap and how they should go about scraping it. These are some examples of robots.txt files:
+Before Web Scraping any website, you should check the robots.txt file. This can be found on almost any website; all you have to do is type in the **url/robots.txt**. The robots.txt file tells each type of bot what part of the website they are allowed to scrap and how they should go about scraping it. These are some examples of robots.txt files:
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/robots-txt.jpg" alt="" style="width:300px; display: block; margin: auto;"/>
 
-These files show different bots names and what they are allowed to scrap and disallowed scrap by each type of bot. For the general user you need to look at the bot file indicated with an astrix (*). Along with where you are allowed to scrap, the file can also have some restrictions on how often you can make requests, shown the 'Crawl-delay:', what hours you can scrap it, and other restrictions. You can find more information on web scraping <a href="https://www.zenrows.com/blog/robots-txt-web-scraping#robots-txt-web-scraping" target="_blank">here</a>.
+These files show different bots names and what they are allowed to scrap and not allowed scrap by each type of bot. For the general user you need to look at the bot file indicated with an astrix (*). Along with where you are allowed to scrap, the file can also have some restrictions on how often you can make requests, shown by the 'Crawl-delay:', what hours you can scrap it, and other restrictions. You can find more information on web scraping <a href="https://www.zenrows.com/blog/robots-txt-web-scraping#robots-txt-web-scraping" target="_blank">here</a>.
 
 ## Web Scraping
 
-For this example we will be looking at the website for the Big 10 Conference volleyball teams. Before we get started we need to install all of the necessary packages to preform the web scraping.
+For this example, we will be looking at the website for the Big 10 Conference volleyball teams. Before we get started, we need to install all of the necessary packages to perform the web scraping.
 
 ```
 pip install pandas
@@ -32,7 +32,7 @@ pip install webdriver-manager
 pip install beautifulsoup4
 
 ```
-Next the packages need to be imported for use. The following code chunk will can be used to get all the appropriate things from each package.
+Next the packages need to be imported for use. The following code chunk can be used to get all the appropriate things from each package.
 
 ```
 import pandas as pd
@@ -57,7 +57,7 @@ driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install())
 driver.get(url)
 ```
 
- This website is special because it doesn't change the url when the year changes for the table. The default for the website is 2024, but we want to scrap the year 2023. To change the year we will need to use another special feature in selenium that allows us to click on items on the webpage. First, the website needs to be completely loaded, for this we will use the WebDriverWait funtion. Then we will click the area that shows the season. Next we will tell it wich year would like to select and then click on that one as well. *If you want to look at different years you can just change where is says 2023 to the year you would like to look at.*
+ This website is special because it doesn't change the url when the year changes for the table. The default for the website is 2024, but we want to scrap the year 2023. To change the year, we will need to use another special feature in selenium that allows us to click on items on the webpage. First, the website needs to be completely loaded, for this we will use the WebDriverWait funtion. Then we will click the area that shows the season. Next, we will tell it which year to select and then click on that one as well. *If you want to look at different years you can just change where it says 2023 to be the year you would like to look at.*
 
  ```
 wait = WebDriverWait(driver, 10)
@@ -70,14 +70,14 @@ year_option.click()
 
 *If you would like more information on selenium you can find it <a href="https://selenium-python.readthedocs.io/installation.html" target="_blank">here</a>.*
 
-Now that we have the appropriate table, we want to use the package beautiful soup to get the htlm and information from the table. Using the following code we create the beautiful soup object and get the table.
+Now that we have the appropriate table, we want to use the package beautiful soup to get the html and information from the table. Using the following code, we create the beautiful soup object and get the table.
 
 ```
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 table = soup.find('table')
 ```
 
-We can use the find and find all commands from the beautiful soup package to first get the headers from the table. These will be the names of all of the variables we will be looking at.
+We can use the find and find all commands from the beautiful soup package to first get the headers from the table. These will be the names of all the variables we will be looking at.
 
 ```
 headers = []
@@ -88,7 +88,7 @@ for row in all:
     name = row.find('div').text
     headers.append(name)
 ```
-Next, we need to get the row information from the table. We will use the same functions of find and find_all within a for loop to get all of the values.
+Next, we need to get the row information from the table. We will use the same functions of find and find_all within a for loop to get all the values.
 
 ```
 body = table.find('tbody')
@@ -106,7 +106,7 @@ Finally, we will use the pandas package to create a data frame with all the info
 data2023 = pd.DataFrame(rows, columns= headers)
 ```
 
-Be sure to close the driver when you are finished scraping the data. Using the following:
+Be sure to close the driver when you have finished scraping the data. By using the following:
 
 ```
 driver.close()
@@ -116,11 +116,11 @@ driver.close()
 
 ## Data Cleaning
 
-The next step is to make sure that we can use use the data that we got from website. Luckily in this case the data is already pretty clean. This is what the first few rows of data will look like right after web scraping. 
+The next step is to make sure that we can use the data that we got from website. Luckily in this case the data is already pretty clean. This is what the first few rows of data will look like right after web scraping. 
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/precleanvolleydata.jpg" alt=""/>
 
-The first thing we need to do is git rid of the columns that have no value to us in showing the stats of the player. To do this we will use the drop function found in the pandas package. We use the columns option in drop and put in a list of the columns we would like to remove. In this case the Unnamed: 0 column is refering to the index of the row which we already have, and the logo url is unnecessary. Next, we will use the rename function to change the column names to be more discriptive of the variable.
+The first thing we need to do is get rid of the columns that have no value to us in showing the stats of the player. To do this we will use the drop function found in the pandas package. We use the columns option in drop and put in a list of the columns we would like to remove. In this case the Unnamed: 0 column is referring to the index of the row which we already have, and the logo url is unnecessary. Next, we will use the rename function to change the column names to be more descriptive of the variable.
 
 ```
 players = players2023.drop(columns= ['Unnamed: 0', 'logo url'])
@@ -150,19 +150,19 @@ The data frame should now then look like this:
 
 ## Exploring the Data
 
-Now we can look into different trends in the data and what it tells us about highly ranked players. One interesting way we can look at this is by the correlation matrix of each of the variables. We do this throught the matplotlibs package and the seaborn package. If you don't have these packages you can download them by running these two lines of code.
+Now we can look into different trends in the data and what it tells us about highly ranked players. One interesting way we can look at this is by the correlation matrix of each of the variables. We do this through the matplotlibs package and the seaborn package. If you don't have these packages, you can download them by running these two lines of code.
 
 ```
 pip install matplotlib
 pip install seaborn
 ```
-We also need to import them into the area we are working.
+We also need to import them into the area we are working in.
 ```
 import seaborn as sns
 import matplotlib.pyplot as plt
 ```
 
-Because the name, and the number of games or sets played don't tell us much about the ranking we will be removing them from the correlation matrix.
+Because the name, and the number of games or sets played do not tell us much about the ranking we will be removing them from the correlation matrix.
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/correlationmatrix.png" alt="" style="display: block; margin: auto;"/>
 
@@ -189,7 +189,7 @@ There are a few interesting trends shown in the correlation matrix:
 
 \* *Service Ace is a point off of a serve* 
 
-We can compare each of these correlations through scatterplots. As you can see when the rank is closer to 1 the athletes tend to have more kills and more blocks. This shows us that the players with the highest rankings tend to be in the front row.
+We can compare each of these correlations through scatterplots. As you can see, when the rank is closer to 1 the athletes tend to have more kills and more blocks. This shows us that the players with the highest rankings tend to be in the front row.
 
 *The code for all of the following plots can be found at the end of the post.*
 
@@ -199,7 +199,7 @@ We can also compare blocks to kills and aces to digs in a scatterplots.
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/digsandaces.png" alt="" style="display: block; margin: auto;"/>
 
-Another interesting thing to look at is the stats by the athletes name. We can do this by using a bar graph. In this graph it is showing the top five highest ranked players hitting percentages. They all have a fairly high hitting percentage making them challenging players to defend.
+Another interesting thing to look at is the stats by the athlete's name. We can do this by using a bar graph. In this graph it shows the top five highest ranked players hitting percentages. They all have a fairly high hitting percentage, making them challenging players to defend.
 
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/tophittingpercentage.png" alt="" style="display: block; margin: auto;"/>
@@ -208,7 +208,7 @@ Another interesting thing to look at is the stats by the athletes name. We can d
 
 ## Conclusion
 
-In conclusion, through the graphics it was made clear that the players who had more hits and blocks were more likely to appear higher in the rankings then those who were lower. However, we barely scraped the tip of the iceberg of possibilities for this data. We talked about how to webscrap and what to pay attention to in robots.txt files. We covered how to select the columns we need and rename them. And then we showed some different visualizations we can use to display are data. Now that you have done this for the volleyball data set, you can do it for any data set that you can find. Go and find a data set that interests you and see what you can uncover!
+In conclusion, through the graphics it was made clear that the players who had more hits and blocks were more likely to appear higher in the rankings than those who were lower. However, we barely scraped the tip of the iceberg of possibilities for this data. We talked about how to webscrap and what to pay attention to in robots.txt files. We covered how to select the columns we need and rename them. And then we showed some different visualizations we can use to display the data. Now that you have done this for the volleyball data set, you can do it for any data set that you can find. Go and find a data set that interests you and see what you can uncover!
 
 
 **Code for plots**
