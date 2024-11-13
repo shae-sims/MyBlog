@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "How to Evaluate College Volleyball Players"
+title:  "Evaluating College Volleyball Rankings"
 author: Shaelyn Eldrege
-description: This article will talk about getting 
+description: This article will talk about the process of web scraping, cleaening, and evualting college volleyball statistics through athletes in the Big 10 Conference in 2023.
 image: /assets/images/volleyballs.jpeg
 display_image: True
 ---
