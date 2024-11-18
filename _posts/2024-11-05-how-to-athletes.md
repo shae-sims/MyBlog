@@ -21,6 +21,8 @@ Before Web Scraping any website, you should check the robots.txt file. This can 
 
 These files show different bots names and what they are allowed to scrap and not allowed scrap by each type of bot. For the general user you need to look at the bot file indicated with an astrix (*). Along with where you are allowed to scrap, the file can also have some restrictions on how often you can make requests, shown by the 'Crawl-delay:', what hours you can scrap it, and other restrictions. You can find more information on web scraping <a href="https://www.zenrows.com/blog/robots-txt-web-scraping#robots-txt-web-scraping" target="_blank">here</a>.
 
+The Robots.txt file for the Big 10 website does not restrict any of the pages from being web scrapped. It also doesen't indicate a crawl speed. So we can web scrap this site with no limitations.
+
 ## Web Scraping
 
 For this example, we will be looking at the website for the Big 10 Conference volleyball teams. Before we get started, we need to install all of the necessary packages to perform the web scraping.
@@ -209,6 +211,8 @@ Another interesting thing to look at is the stats by the athlete's name. We can 
 ## Conclusion
 
 In conclusion, through the graphics it was made clear that the players who had more hits and blocks were more likely to appear higher in the rankings than those who were lower. However, we barely scraped the tip of the iceberg of possibilities for this data. We talked about how to webscrap and what to pay attention to in robots.txt files. We covered how to select the columns we need and rename them. And then we showed some different visualizations we can use to display the data. Now that you have done this for the volleyball data set, you can do it for any data set that you can find. Go and find a data set that interests you and see what you can uncover!
+
+You can access all of the code in the github repository <a href="https://github.com/shae-sims/WebSrapingCode/tree/main" target="_blank">seaborn</a> and <a href="https://matplotlib.org/stable/api/pyplot_summary.html" target="_blank">here</a>.
 
 
 **Code for plots**
