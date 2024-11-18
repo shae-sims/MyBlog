@@ -9,7 +9,7 @@ display_image: True
 
 ## Introduction
 
-Watching volleyball is one of my favorite past times. Seeing how each team reacts and which players seem to dominate the court has always been fascinating. But there is always the question of what makes a good player? Is it their hitting skill, how hard they serve, or how many times they pass the ball? We will be exploring these questions and much more.
+Watching volleyball is one of my favorite pastimes. Seeing how each team reacts and which players seem to dominate the court has always been fascinating. But there is always the question of what makes a good player? Is it their hitting skill, how hard they serve, or how many times they pass the ball? We will be exploring these questions and much more.
 
 The first thing to do is to get a data set with player rankings. To do this we will be using the Big 10 Conference volleyball player rankings from 2023. First we will look into web scraping the data, and ethics behind it. Then we will organize it and see what information we can get from it.
 
