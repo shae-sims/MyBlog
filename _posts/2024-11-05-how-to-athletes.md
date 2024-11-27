@@ -212,7 +212,7 @@ Another interesting thing to look at is the stats by the athlete's name. We can 
 
 In conclusion, through the graphics it was made clear that the players who had more hits and blocks were more likely to appear higher in the rankings than those who were lower. However, we barely scraped the tip of the iceberg of possibilities for this data. We talked about how to webscrap and what to pay attention to in robots.txt files. We covered how to select the columns we need and rename them. And then we showed some different visualizations we can use to display the data. Now that you have done this for the volleyball data set, you can do it for any data set that you can find. Go and find a data set that interests you and see what you can uncover!
 
-You can access all of the code in the github repository <a href="https://github.com/shae-sims/WebSrapingCode/tree/main" target="_blank">seaborn</a> and <a href="https://matplotlib.org/stable/api/pyplot_summary.html" target="_blank">here</a>.
+You can access all of the code in the github repository <a href="https://github.com/shae-sims/WebSrapingCode/tree/main" target="_blank">here</a>.
 
 
 **Code for plots**
