@@ -25,33 +25,11 @@ The Robots.txt file for the Big 10 website does not restrict any of the pages fr
 
 ## Web Scraping
 
-For this example, we will be looking at the website for the Big 10 Conference volleyball teams. Before we get started, we need to install all of the necessary packages to perform the web scraping.
-
-```
-pip install pandas
-pip install selenium
-pip install webdriver-manager
-pip install beautifulsoup4
-
-```
-Next the packages need to be imported for use. The following code chunk can be used to get all the appropriate things from each package.
-
-```
-import pandas as pd
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from bs4 import BeautifulSoup
-```
-
-This is the table that we will be scraping from.
+For this example, we will be looking at the website for the Big 10 Conference volleyball teams. The first thing that we needed to do is make sure that all of the required packages are installed. The packages that we will be using to do this project are pandas, selenium, webdriver-manager, and beautifulsoup4. Each of these packages have important functions that are vital for webscrapping. This particular website. The table we will be scrapping from is shown below. As you can see there are several buttons along the top that you can use to see different statistics or seasons. We will need to use these to get the data we want.
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/big10table.jpg" alt=""/>
 
-First, we need to set up the driver. To do this we use the webdriver function found in Selenium. I will be using a Chrome driver. How to do this is shown in the code below.
+First, we need to set up the driver. To do this we use the webdriver function found in selenium. I will be using a Chrome driver, however, depending on your browser you may need to use a different function. How to do this is shown in the code below.
 
 ```
 url = 'https://bigten.org/wvb/stats/'
@@ -59,7 +37,7 @@ driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install())
 driver.get(url)
 ```
 
- This website is special because it doesn't change the url when the year changes for the table. The default for the website is 2024, but we want to scrap the year 2023. To change the year, we will need to use another special feature in selenium that allows us to click on items on the webpage. First, the website needs to be completely loaded, for this we will use the WebDriverWait funtion. Then we will click the area that shows the season. Next, we will tell it which year to select and then click on that one as well. *If you want to look at different years you can just change where it says 2023 to be the year you would like to look at.*
+As mentioned above we will need to use the buttons along the top of the screen to get the data we want. We want to scrap from the 2023 season but he default for the website is 2024. To change this, we will need to use another special feature in selenium that allows us to click on items on the webpage. First, the website needs to be completely loaded, for this we will use the WebDriverWait funtion. Then we will click the area that shows the season. Next, we will tell it which year to select and then click on it. *If you want to look at different years you can just change where it says 2023 to be the year you would like to look at.*
 
  ```
 wait = WebDriverWait(driver, 10)
@@ -108,11 +86,7 @@ Finally, we will use the pandas package to create a data frame with all the info
 data2023 = pd.DataFrame(rows, columns= headers)
 ```
 
-Be sure to close the driver when you have finished scraping the data. By using the following:
-
-```
-driver.close()
-```
+**Be sure to close the driver when you have finished scraping the data. By using the driver.close function.**
 
 *If you would like to learn more about using the BeautifulSoup packages click <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank">here</a>*
 
@@ -122,7 +96,7 @@ The next step is to make sure that we can use the data that we got from website.
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/precleanvolleydata.jpg" alt=""/>
 
-The first thing we need to do is get rid of the columns that have no value to us in showing the stats of the player. To do this we will use the drop function found in the pandas package. We use the columns option in drop and put in a list of the columns we would like to remove. In this case the Unnamed: 0 column is referring to the index of the row which we already have, and the logo url is unnecessary. Next, we will use the rename function to change the column names to be more descriptive of the variable.
+Getting rid of unwanted columns is our first priority. The two columns we want to remove are the 'Unnamed: 0' and 'logo url'. To do this we will use the drop function found in the pandas package. We use the columns option in drop and put in a list of the columns we would like to remove. We will also use the rename function to change the column names to be more descriptive of the variable. An example of these two functions are shown below.
 
 ```
 players = players2023.drop(columns= ['Unnamed: 0', 'logo url'])
@@ -133,67 +107,33 @@ players = players.rename(columns= {'RK' : 'rank', 'NAME':'name','GP':'games_play
                             'DIG/S':'digs_per_set', 'SA':'service_aces', 
                             'SA/S':'service_aces_per_set', 'R%':'reception_percentage'})
 ```
-These two steps can be combined into one line of code as follows:
 
-```
-players = players2023.drop(columns= ['Unnamed: 0', 'logo url']).rename(columns= {'RK' : 'rank', 
-                                'NAME':'name','GP':'games_played','SETS':'sets_played',
-                                'KILLS': 'kills', 'KILL/S':'kills_per_set', 'PCT':'hitting_percentage', 
-                                'A':'assists', 'A/S': 'assists_per_set', 'BLK':'blocks', 
-                                'BLK/S':'blocks_per_set', 'DIG':'digs', 
-                                'DIG/S':'digs_per_set', 'SA':'service_aces', 
-                                'SA/S':'service_aces_per_set',  'R%':'reception_percentage'})
-```
-
-The data frame should now then look like this:
+The data frame should now look like this:
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/cleanvolleydata.jpg" alt=""/>
 
 
 ## Exploring the Data
 
-Now we can look into different trends in the data and what it tells us about highly ranked players. One interesting way we can look at this is by the correlation matrix of each of the variables. We do this through the matplotlibs package and the seaborn package. If you don't have these packages, you can download them by running these two lines of code.
+Finally, we can look into different trends in the data and what it tells us about highly ranked players. One interesting way we can look at this is by the correlation matrix of each of the variables. We do this through the matplotlibs package and the seaborn package.
 
-```
-pip install matplotlib
-pip install seaborn
-```
-We also need to import them into the area we are working in.
-```
-import seaborn as sns
-import matplotlib.pyplot as plt
-```
-
-Because the name, and the number of games or sets played do not tell us much about the ranking we will be removing them from the correlation matrix.
+Because the name, and the number of games or sets played do not tell us much about the ranking we will be removing them from the correlation matrix. While looking at the matrix it is important to remember that the highest rank is 1, making a lot of the correlations negative.
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/correlationmatrix.png" alt="" style="display: block; margin: auto;"/>
 
-```
-correlation_matrix = players.drop(columns=['games_played', 'sets_played', 'name']).corr().round(2)
-plt.figure(figsize=(8, 6))
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', square=True)
-plt.title('Correlation Heatmap')
-plt.show()
-
-```
 
 There are a few interesting trends shown in the correlation matrix:
 * Kills and Kill per Set are correlated with the Rank
+*A kill is scoring a point off of a hit*
 * Blocks and Blocks per Set are correlated with Rank
+*Blocks are when teams stop someone from hitting over the net and it comes back on hitters side*
 * Blocks and Kills are correlated with each other
 * Service Aces and Digs are correlated
+\* *Digs are passing a hard driven ball well and services aces are when the server gets a point from serving*
 
-\* *Highest Ranking is 1 this is why the correlations are negative* 
+We can compare each of these correlations through scatterplots. As you can see, when the rank is closer to 1 the athletes tend to have more kills and more blocks. This shows us that the players with the highest rankings tend to be front row players.
 
-\* *A kill is scoring a point off of a hit*
-
-\* *Digs are passing a hard driven ball well*
-
-\* *Service Ace is a point off of a serve* 
-
-We can compare each of these correlations through scatterplots. As you can see, when the rank is closer to 1 the athletes tend to have more kills and more blocks. This shows us that the players with the highest rankings tend to be in the front row.
-
-*The code for all of the following plots can be found at the end of the post.*
+*The code for all of the following plots can be found in the github repository at the end of the post.*
 
 <img src="{{site.url}}/{{site.baseurl}}/assets/images/rankingcomparisons.png" alt="" style="display: block; margin: auto;"/>
 
@@ -215,58 +155,5 @@ In conclusion, through the graphics it was made clear that the players who had m
 You can access all of the code in the github repository <a href="https://github.com/shae-sims/WebSrapingCode/tree/main" target="_blank">by clicking here</a>.
 
 
-**Code for plots**
-
-```
-
-#Ranking Scatterplots
-
-fig, axs = plt.subplots(2, 2, figsize=(10, 10))
-axs[0,0].scatter(players['rank'],players['blocks'], color = 'skyblue')
-axs[0,0].set_xlabel('Rank of Athlete')
-axs[0,0].set_ylabel('Total Number of Blocks')
-axs[0,0].set_title('Rank compared to Blocks')
-
-axs[0,1].scatter(players['rank'],players['blocks_per_set'], color = 'skyblue')
-axs[0,1].set_xlabel('Rank of Athlete')
-axs[0,1].set_ylabel('Total Number of Blocks per Set')
-axs[0,1].set_title('Rank compared to Blocks per Set')
-
-axs[1,0].scatter(players['rank'],players['kills'], color = 'skyblue')
-axs[1,0].set_xlabel('Rank of Athlete')
-axs[1,0].set_ylabel('Total Number of Kills')
-axs[1,0].set_title('Rank compared to Kills')
-
-axs[1,1].scatter(players['rank'],players['kills_per_set'], color = 'skyblue')
-axs[1,1].set_xlabel('Rank of Athlete')
-axs[1,1].set_ylabel('Total Number of Kills per Set')
-axs[1,1].set_title('Rank compared to Kills per Set')
-plt.show()
-
-#Other Scatterplots
-
-fig, axs = plt.subplots(1, 2, figsize=(10, 5))
-axs[0].scatter(players['blocks'],players['kills'], color = 'darkcyan')
-axs[0].set_xlabel('Number of Blocks')
-axs[0].set_ylabel('Number of Kills')
-axs[0].set_title('Number of Blocks VS Number of Kills')
-
-axs[1].scatter(players['digs'],players['service_aces'], color = 'darkcyan')
-axs[1].set_xlabel('Number of Digs')
-axs[1].set_ylabel('Number of Aces')
-axs[1].set_title('Digs compared to Aces')
-plt.show()
-
-#Barplot
-
-top_hitters = players[0:5]
-
-plt.figure(figsize= (7,7))
-sns.barplot(top_hitters, x = 'name', y= 'hitting_percentage')
-plt.ylabel('Hitting Percentage')
-plt.xlabel('Athletes Name')
-plt.title('Top 5 Athletes Hitting Percentage')
-plt.show()
-```
 
 
