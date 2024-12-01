@@ -86,7 +86,7 @@ Finally, we will use the pandas package to create a data frame with all the info
 data2023 = pd.DataFrame(rows, columns= headers)
 ```
 
-**Be sure to close the driver when you have finished scraping the data. By using the driver.close function.**
+**Be sure to close the driver when you have finished scraping the data by using the driver.close function.**
 
 *If you would like to learn more about using the BeautifulSoup packages click <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank">here</a>*
 
