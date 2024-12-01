@@ -115,7 +115,7 @@ The data frame should now look like this:
 
 ## Exploring the Data
 
-Finally, we can look into different trends in the data and what it tells us about highly ranked players. One interesting way we can look at this is by the correlation matrix of each of the variables. We do this through the matplotlibs package and the seaborn package.
+Finally, we can look into different trends in the data and what it tells us about highly ranked players. One interesting way we can look at this is by the correlation matrix of each of the variables. We do this through the matplotlib package and the seaborn package.
 
 Because the name, and the number of games or sets played do not tell us much about the ranking we will be removing them from the correlation matrix. While looking at the matrix it is important to remember that the highest rank is 1, making a lot of the correlations negative.
 
