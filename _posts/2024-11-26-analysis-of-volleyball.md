@@ -24,7 +24,7 @@ As shown above in the correlation matrix the skill most correlated with rank is 
 
 Another interesting trend we can see in the data is between aces and digs. We can see the relationship of these two skills by look at the correlation coefficient, which is 0.7, and by looking at the scatterplot between the two points.
 
-<img src="{{site.url}}/{{site.baseurl}}/assets/images/onlydigsandaces.png" alt="" style="display: block; margin: auto;"/>
+<img src="{{site.url}}/{{site.baseurl}}/assets/images/onlydigsandaces.png" alt="" style="width:300px;"/>
 
 There is a clear upward trend. This is interesting because every player on the court takes a turn serving the ball. However, the best servers also seem to be those who do well in the back row.
 
