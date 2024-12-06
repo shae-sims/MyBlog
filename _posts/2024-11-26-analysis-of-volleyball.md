@@ -43,15 +43,15 @@ def rank_comparison(data, x = "Rank", y = "Kills"):
     return fig
 ```
 
-This function can take in two numerical variables, but I set the default to be rank and kills. The function titled get_right_name() is defined above this one. What it does is takes the name that the user inputs and switches it to be the same as the name in the data set. 
+This function can take in any two numerical variables, but I set the default to be rank and kills. The function titled get_right_name() is defined above this one. Its function is to take the name that the user inputs and switch it to be the same as the name in the data set. 
 
 The next thing I did was add several different elements to my app. To do this I used the streamlit features of st.radio(), st.tabs(), st.expander(), st.selectbox(), st.textinput(), and many more. You can find documentation on how to find each of these <a href="https://docs.streamlit.io/develop/api-reference" target="_blank">here.</a>
 
 Another important element of the app is being able to put in text to do this you can use these commands:
 * st.header(): Which creates a page headers
 * st.subheader(): Which creates a subheader slightly smaller than the header
-* st.write(): Which allows you to put text into the blog post
-*There are other ways to add text these are just the three that I used*
+* st.markdown(): Which allows you to put text into the blog post
+*There are other ways to add text these are just three that I used*
 
 # Exploring The Streamlit App
 
