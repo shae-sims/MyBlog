@@ -65,6 +65,5 @@ The next tab labeled "Individual Players" allows the user to input the number of
 
 ## Conclusion
 
-Sports data can be so interesting! Especially when it is a sport you love. Now that I taken you behind the scenes into how to build a streamlit app, go explore it. See what insights you can get about this data through the information on the app!
-
+Sports data can be fascinating, especially when it’s from a sport that you love! Now that you’ve seen behind the scenes into the creation of a streamlit app, try it out for yourself! Use this app to come up with your own insights, or apply it to data of your own! As always, leave me a comment letting me know what you thought of it and what exciting information you were able to uncover!
 
